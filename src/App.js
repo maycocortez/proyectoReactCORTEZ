@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
 
-  const name = "Mayco"
+  const name = "Gonzalo"
   return (
     <div className="App">
   
