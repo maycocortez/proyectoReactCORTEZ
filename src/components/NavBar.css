@@ -1,0 +1,16 @@
+.divNav {
+    background-color: aqua;
+    height: 30px;
+
+    
+}
+
+.nav,ul{
+    list-style: none;
+}
+.nav,ul,li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
