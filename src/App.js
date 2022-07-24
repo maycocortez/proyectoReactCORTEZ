@@ -11,7 +11,7 @@ function App() {
    <>
    <div className='App'>
       <NavBar/>
-      <ItemListConainer nombre="Gonzalo"/>
+      <ItemListConainer nombre="Gonzalo">Hola</ItemListConainer>
       </div>
       </>
   )
