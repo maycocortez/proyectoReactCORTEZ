@@ -17,3 +17,14 @@ const productos = [
           }
         },2000)
       })
+
+      export const getItem = new Promise ((resolve,reject) => {
+        let condition = true
+        setTimeout(()=>{
+          if (condition) {
+            resolve(productos)
+          } else {
+            reject("hubo un error")
+          }
+        },2000)
+      })

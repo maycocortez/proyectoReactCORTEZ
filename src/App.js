@@ -6,6 +6,7 @@ import "./components/ItemList.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListConainer from './components/ItemListContainer'
 
+
 function App() {
 
   
@@ -13,6 +14,7 @@ function App() {
    <>
    <div className='App'>
       <NavBar/>
+      
       <ItemListConainer nombre="Gonzalo">Hola</ItemListConainer>
       </div>
       </>
