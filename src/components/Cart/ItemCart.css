@@ -1,0 +1,12 @@
+.divItemCart {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.itemCart img {
+    height: 200px;
+    width: 200px;
+    
+}
+

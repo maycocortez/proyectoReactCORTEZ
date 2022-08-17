@@ -9,19 +9,29 @@ const ItemDetail = ({ producto }) => {
   const [compra,setCompra] = useState(false)
   const navigate = useNavigate()
   const {addItem} = useCartContext()
+  const { id, name, descripcion, category, precio,stock, img } = producto;
 
-  const onAdd = (cantidad) => {
-    addItem(producto, cantidad)
+  const onAdd = () => {
+    let itemAComprar = {
+      id,
+      name,
+      precio,
+      descripcion, 
+      category,
+      img,
+      quantity: contador,
+    }
+    addItem(itemAComprar)
     setCompra(true)
   };
   return (
    <div className='itemDetail' >
     <div>
-      <h3>{producto.name}</h3>
-      <img src={producto.img} alt={producto.name} width={200} />
-      <p>{producto.descripcion}</p>
-      <p>Precio ${producto.precio}</p>
-      <p>Stock: {producto.stock}</p>
+      <h3>{name}</h3>
+      <img src={img} alt={name} width={200} />
+      <p>{descripcion}</p>
+      <p>Precio ${precio}</p>
+      <p>Stock: {stock}</p>
       {compra ? <div>
         <button onClick={()=>{navigate('/')}}>Seguir Comprando</button>
       <button onClick={()=>{navigate('/cart')}}>Ir al carrito</button>

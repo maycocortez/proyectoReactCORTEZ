@@ -4,6 +4,7 @@ import NavBar from './components/NavBar/NavBar';
 import './components/NavBar/NavBar.css'
 import "./components/ItemList/ItemList.css"
 import "./components/ItemDetail/ItemDetail.css"
+import "./components/Cart/ItemCart.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom'
