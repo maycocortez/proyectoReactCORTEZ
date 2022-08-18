@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 
 import ItemList from "../ItemList/ItemList"
-import { data } from "../mock/FakeApi"
 import { useParams } from "react-router-dom";
-
+import {collection,getDocs,getFirestore,query,where,} from 'firebase/firestore';
 
 
  const ItemListContainer = () => {
@@ -14,20 +13,34 @@ import { useParams } from "react-router-dom";
   const { categoriaId } = useParams();
 
   useEffect(() => {
-    data
-      .then((res) => {
-        if (!categoriaId) {
-          setCatalogoProductos(res);
-        } else {
-          setCatalogoProductos(res.filter((item) => item.category === categoriaId));
-        }
-      })
-      .catch(() => setMensaje('hubo un error, intente nuevamente más tarde'))
-      .finally(() => setCargando(false));
+    const db = getFirestore();
+
+    const itemsCollection = collection(db, `items`);
+
+    if (categoriaId) {
+      const q = query(itemsCollection, where(`category`, `==`, categoriaId));
+      getDocs(q)
+        .then((snapshot) => {
+          setCatalogoProductos(
+            snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+          );
+        })
+        .catch(() => setMensaje('Error. Intente mas tarde'))
+        .finally(() => setCargando(false));
+    } else {
+      getDocs(itemsCollection)
+        .then((snapshot) => {
+          setCatalogoProductos(
+            snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+          );
+        })
+        .catch(() => setMensaje('Error. Intente mas tarde'))
+        .finally(() => setCargando(false));
+    }
   }, [categoriaId]);
   return (
-    <div className='containerGlobal'>
-      {mensaje && <p>{mensaje}</p>}
+    <div>
+  
       {cargando ? (
         <p>Loading...</p>
       ) : (

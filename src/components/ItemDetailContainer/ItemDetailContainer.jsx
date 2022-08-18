@@ -1,25 +1,42 @@
 import { useEffect, useState } from 'react';
-import { data} from '../mock/FakeApi';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from "react-router-dom";
+import {getFirestore,doc,getDoc} from 'firebase/firestore';
+
 export const ItemDetailContainer = () => {
   const [producto, setProducto] = useState({});
   const [cargando, setCargando] = useState(true);
   const { id } = useParams();
   useEffect(() => {
-    data
-      .then((res) => setProducto(res.find((item) => item.id === id)))
-      .catch((error) => console.log(error))
+    const db = getFirestore();
+
+    const productoRef = doc(db, `items`, id);
+    getDoc(productoRef)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const data = {
+            id: snapshot.id,
+            ...snapshot.data(),
+          };
+          setProducto(data);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      })
       .finally(() => setCargando(false));
-  }, [id]);
+  }, [id]); 
+
+
   return (
     <>
-      <div>Detalle del producto</div>
+      <div>Detalles del producto</div>
       <div>
         {cargando ? <p>Cargando...</p> : <ItemDetail producto={producto} />}
       </div>
     </>
   );
-};
-  
+}
+
+
   export default ItemDetailContainer;
