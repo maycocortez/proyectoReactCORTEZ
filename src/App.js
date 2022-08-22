@@ -11,9 +11,14 @@ import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import Cart from './components/Cart/Cart';
 import CartProvider from './context/CartContext';
+import Checkout from "./components/Checkout/Checkout"
 
 function App() {
 
+  /*useEffect(()=> {
+const productsCollections = collection (db,"productos")
+productos.map((item) => addDoc(productsCollections,item))
+},[])*/
   
   return (
     <BrowserRouter>
@@ -25,6 +30,7 @@ function App() {
       <Route path='/item/:id' element={<ItemDetailContainer />} />   
       <Route path = '/cart' element={<Cart />} /> 
       <Route path='*' element={ <Navigate to='/' /> } />
+      <Route path = '/checkout' element={<Checkout/>} /> 
 
       </Routes>
       </CartProvider>

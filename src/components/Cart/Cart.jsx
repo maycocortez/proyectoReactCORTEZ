@@ -2,27 +2,28 @@ import React from 'react'
 import { useCartContext } from '../../context/CartContext'
 import ItemCart from "./ItemCart"
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const {cart, totalPrice } = useCartContext();
-  
+  const navegar = useNavigate()
+
   if (cart.length === 0){
     return (
       <>
-        <p><span> No hay elementos en el carrito</span></p>
+        <p style={{marginTop:'50px'}}><span> No hay elementos en el carrito</span></p>
         <Link to= '/'> Seguir comprando</Link>
       </>
     );
   }
   return (
-    <div className='cart'>
+    <div style={{marginTop:'50px'}}>
       {
         cart.map((producto )=> <ItemCart key={producto.id} producto={producto}/>)
 
       }
       <p > Total: ${totalPrice()}</p>
-      <Link to= '/'> <button>Finalizar compra</button></Link>
+ <button onClick={()=>navegar("/checkout")}>Finalizar compra</button>
       </div>
   )
 };
