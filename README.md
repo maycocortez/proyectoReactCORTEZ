@@ -1,13 +1,15 @@
 # PROYECTO REACT - MAYCO CORTEZ
 
 Idea realizada para el proyecto final del curso de React de Coderhouse , basado en una tienda de venta de discos
-## Utilidades
 
-Se uso HTML , CSS , JAVASCRIPT y ReactJS
+## UTILIDADES
 
-In the project directory, you can run:
+Se utilizo HTML5 , CSS3 , JAVASCRIPT ,ReactJS y React Bootstrap para crear el proyecto
+
+## OBJETIVO
+El objetivo del proyecto es recrear un e-commerce sencillo y funcional
 
 ## NAVEGACION
 
-![Animation](https://user-images.githubusercontent.com/99505123/182282446-33eb237e-bfb9-4c1b-ab2c-1a15db1d3a2c.gif)
 
+![Animation125432553](https://user-images.githubusercontent.com/99505123/188532803-365e1681-8b11-4e98-8685-818e18f12282.gif)
