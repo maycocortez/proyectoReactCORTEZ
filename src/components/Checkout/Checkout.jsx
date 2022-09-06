@@ -43,17 +43,24 @@ const Checkout = () => {
         
  { !orderId   
 
-     ?<div>
+     ?<div className="formulario">
             
              <form onSubmit={terminarCompra} style={{marginTop:'50px'}}>
-              <h2>Ingrese sus datos</h2>
+              <h1 style={{color:"white"}}>Ingrese sus datos</h1>
+              <div>
                  <input type="text" required placeholder='Nombre y apellido' name='name'onChange={datosClient} />
+                 </div>
+                 <div>
                  <input type="number"  placeholder='Numero de contacto' name='telefono'onChange={datosClient} />
+                 </div>
+                 
+                 <div>
                  <input type="email"  placeholder='ejemplo@gmail.com' name='email'onChange={datosClient}/>
+                 </div>
                  <button type='submit'>Finalizar Compra</button>
              </form>
          </div>
-       :  <div style={{marginTop:'50px'}}>
+       :  <div style={{marginTop:'50px',marginLeft:"20rem",display:"flex",flexDirection:"column"}}>
         <h2>Gracias por su compra</h2>
         <h3>Su orden es: {orderId}</h3>
       <Link to={"/"}><button>Volver al inicio</button></Link>  

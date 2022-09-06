@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
 
 const ItemDetail = ({ producto }) => {
-  const [contador,setContador] = useState(0)
+  const [contador,setContador] = useState(1)
   const [compra,setCompra] = useState(false)
   const navigate = useNavigate()
   const {addItem} = useCartContext()
@@ -25,20 +25,23 @@ const ItemDetail = ({ producto }) => {
     setCompra(true)
   };
   return (
+   
    <div className='itemDetail' >
-    <div>
-      <h3>{name}</h3>
-      <img src={img} alt={name} width={200} />
-      <p>{descripcion}</p>
-      <p>Precio ${precio}</p>
-      <p>Stock: {stock}</p>
-      {compra ? <div>
-        <button onClick={()=>{navigate('/')}}>Seguir Comprando</button>
-      <button onClick={()=>{navigate('/cart')}}>Ir al carrito</button>
+  
+        <img src={img} alt={name}  className='foto' />
+
+        <div >
+        <h3>{name}</h3>
+        <p>{descripcion}</p>
+        <p>Precio ${precio}</p>
+        <p>Stock: {stock}</p>
+        {compra ? 
+          <div  className="botonera">
+            <button onClick={()=>{navigate('/')}}>Seguir Comprando</button>
+            <button onClick={()=>{navigate('/cart')}}>Ir al carrito</button>
+            </div>
+        :<ItemCount stock={producto.stock} initial={1} onAdd={onAdd} contador={contador} setContador={setContador} />}
       </div>
-      :<ItemCount stock={producto.stock} initial={1} onAdd={onAdd} contador={contador} setContador={setContador} />}
-      
-    </div>
     </div>
   );
 };

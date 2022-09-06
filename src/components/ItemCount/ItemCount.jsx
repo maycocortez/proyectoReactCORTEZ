@@ -19,9 +19,9 @@ const ItemCount = ({initial,stock,onAdd,contador,setContador})=> {
     return (
         <>
         <div>
-            <button onClick={restar}>-</button>
+            <button onClick={restar} style={{backgroundColor:"red",color:"white"}}>-</button>
             <span>{contador}</span>
-            <button onClick={sumar}>+</button>
+            <button disabled={contador >= stock} onClick={sumar} style={{backgroundColor:"green",color:"white"}}>+</button>
         </div>
         <button onClick={onAdd}>Comprar</button>
         </>

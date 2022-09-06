@@ -4,6 +4,8 @@ import NavBar from './components/NavBar/NavBar';
 import './components/NavBar/NavBar.css'
 import "./components/ItemList/ItemList.css"
 import "./components/ItemDetail/ItemDetail.css"
+import "./components/Cart/Cart.css"
+import "./components/Checkout/Checkout.css"
 import "./components/Cart/ItemCart.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'

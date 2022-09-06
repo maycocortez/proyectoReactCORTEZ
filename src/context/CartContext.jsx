@@ -6,29 +6,36 @@ export const useCartContext = () => useContext(CartContext)
 const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
     
-    const addItem = (item) => {
-        const isInCart = cart.some((producto) => producto.id === item.id);
-    
-        if (isInCart) {
-          const updateCart = cart.map((producto) => {
-            if (producto.id === item.id) {
-              return { ...producto, quantity: producto.quantity + item.quantity };
+  const addItem = (item) => {
+    const itemInCart = cart.find((prod)=> prod.id === item.id)
+    if(itemInCart){
+        const updatedCart = cart.map((prod)=>{
+            if(prod.id === item.id){
+                return {...prod, quantity: prod.quantity + item.quantity}
+            }else{
+                return prod
             }
-          });
-          setCart(updateCart);
-        } else {
-          setCart([...cart, item]);
-        }
-      };
+        })
+        setCart(updatedCart)
+    }else{
+        setCart([...cart, item])
+    }   
+}
+     
         console.log (cart)
 
-    const totalPrice = ( ) => {
-        return cart.reduce ((prev, act) => prev +act.quantity * act.precio, 0)
+        const isInCart = (id) => {
+          return cart.some((prod)=> prod.id === id)
+      }
+        
+      const totalPrice = ( ) => {
+        return cart.reduce ((prev, act) => prev +act.precio * act.quantity, 0)
     }
         
     const removeItem = (id) => setCart(cart.filter(disco => disco.id !== id))
     
     const totalProductos = () => cart.reduce ((acumulador, discoActual) => acumulador + discoActual.quantity, 0 )
+    
     
         
     const clearCart = () => setCart([])
@@ -38,7 +45,7 @@ const CartProvider = ({children}) => {
   return (
     <CartContext.Provider value={{
         clearCart,
-      
+        isInCart,
         removeItem,
         addItem,
         totalPrice,

@@ -17,8 +17,8 @@ import { Link } from 'react-router-dom';
 
           <p className="card-text">${precio}</p>
           <p className="card-text">Stock: {stock}</p>
-          <Button  variant='light'>
-            <Link to={`/item/${id}`}> Ver Detalle </Link>
+          <Button   variant="outline-info">
+            <Link to={`/item/${id}` }> Ver detalle </Link>
           </Button>
      
 

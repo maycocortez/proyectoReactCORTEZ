@@ -17,13 +17,12 @@ const Cart = () => {
     );
   }
   return (
-    <div style={{marginTop:'50px'}}>
-      {
-        cart.map((producto )=> <ItemCart key={producto.id} producto={producto}/>)
-
-      }
-      <p > Total: ${totalPrice()}</p>
- <button onClick={()=>navegar("/checkout")}>Finalizar compra</button>
+    <div style={{marginTop:'50px'}} >
+      { cart.map((producto )=> <ItemCart key={producto.id} producto={producto}/>) }
+      <div className="botonComprar">
+      <p> Total: ${totalPrice()}</p>
+      <button onClick={()=>navegar("/checkout")}>Finalizar compra</button>
+      </div>
       </div>
   )
 };

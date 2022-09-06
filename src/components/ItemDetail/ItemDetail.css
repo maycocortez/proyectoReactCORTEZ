@@ -1,4 +1,23 @@
 .itemDetail {
 display: flex;
 justify-content: center;
+margin-left: 15%;
+margin-top: 2%;
+width: 70%;
+
+height: 50%;
+-webkit-box-shadow: 15px -1px 26px 0px rgba(0,0,0,0.77);
+-moz-box-shadow: 15px -1px 26px 0px rgba(0,0,0,0.77);
+box-shadow: 15px -1px 26px 0px rgba(0,0,0,0.77);
+}
+
+.foto {
+    width: 500px;
+    height: 500px;
+    margin-right: 100px;
+}
+
+.botonera {
+    display: flex;
+    align-items: space-around;
 }

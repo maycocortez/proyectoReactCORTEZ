@@ -1,0 +1,14 @@
+.botonComprar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   margin-left: 21rem;
+    background-color: grey;
+    margin-top: 1rem;
+    border-radius: 72px 72px 72px 72px;
+    -moz-border-radius: 72px 72px 72px 72px;
+    -webkit-border-radius: 72px 72px 72px 72px;
+    border: 0px solid #000000;
+    width: 50%;
+}

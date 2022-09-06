@@ -28,6 +28,8 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 
+
+
 //obtenemos el divRoot
 const divRoot = document.getElementById('root');
 //creamos el virtual DOM

@@ -1,0 +1,12 @@
+.formulario {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: fit-content;
+    margin: auto;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 40px;
+    background-color: grey;
+
+}
